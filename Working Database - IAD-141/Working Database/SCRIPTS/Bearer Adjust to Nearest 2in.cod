@@ -1,0 +1,32 @@
+select item.cid
+ case 1238, 838
+if item.option["Type"].value = "Profiled Bearer" then
+   dim n = .5
+   dim L = item.dim[1].value
+   dim E = item.dim["Bearer Extn"].value
+
+rem Total Length
+   dim T = L + (E*2)
+
+rem Round Up to Nearest Whole Number
+   dim Tt = RoundUp(T,0)
+rem Divide Whole Number by 2
+   dim Ttd = Tt/2
+rem Check what the last 2 values are
+   dim Tt2 = right(Ttd,2)
+
+rem If last two values are .5
+if Tt2 = n then
+   Tt = Tt+1
+endif
+
+rem Distance to Extend Bearer
+dim NE = (Tt - T) / 2
+
+rem Lengthen the End Extention 
+item.dim["Bearer Extn"].value = e + NE
+
+endif
+
+item.update()
+end select

@@ -1,0 +1,3 @@
+item.insspec = "Off"
+item.insulation.status = "Off"
+item.update() 

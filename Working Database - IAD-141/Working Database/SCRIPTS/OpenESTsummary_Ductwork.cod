@@ -1,0 +1,13 @@
+requires task.selection
+dim loop = 1
+dim count = task.selection.count
+while loop <= task.selection.count
+  dim item1 = task.selection[loop]
+dim ApplicationPath
+dim FileFolder
+dim FileName
+FileFolder = "C:\Autodesk Fabrication\Working Database\Resources\"
+FileName = "ESTmep Summary - Ductwork.xlsm"
+exec (FileFolder + FileName)
+loop = loop + count
+end while

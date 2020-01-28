@@ -1,0 +1,232 @@
+requires task.selection
+
+dim i
+dim jobitem
+for i = 1 to task.selection.count
+	jobitem = task.selection[i]
+
+	dim A = jobitem.endlocation(2, "top")
+        dim B = jobitem.level("soffit")
+        dim C = B - A
+	dim D = jobitem.dim[2].numvalue
+	dim E = jobitem.dim[3].numvalue
+	dim F = jobitem.dim[4].numvalue
+	dim G = jobitem.dim[5].numvalue
+	dim H = jobitem.dim[6].numvalue
+	dim J = jobitem.dim[7].numvalue
+	dim K = jobitem.dim[8].numvalue
+	dim L = jobitem.dim[13].numvalue
+
+rem*************************************************************************************838---CLEVIS HANGER********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Clevis Hanger" then
+	     jobitem.dim[7].value = J + C
+	  endif
+        endif
+rem*************************************************************************************838---ROLL CLEVIS HANGER********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Roll Clevis Hanger" then
+	     jobitem.dim[7].value = J + C
+	  endif
+        endif
+rem*************************************************************************************838---J HANGER********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "J" then
+	     jobitem.dim[6].value = H + C
+	  endif
+        endif
+rem*************************************************************************************838---Profiled Bearer********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Profiled Bearer" and
+             jobitem.option["Profile"].value = "Rectangular" then
+	     jobitem.dim[6].value = H + C
+	  endif
+	  if jobitem.option["Type"].value = "Profiled Bearer" and
+             jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[5].value = G + C
+	  endif
+	  if jobitem.option["Type"].value = "Profiled Bearer" and
+             jobitem.option["Profile"].value = "Oval" then
+	     jobitem.dim[6].value = H + C
+	  endif
+        endif
+rem*************************************************************************************838---Stirrup********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Stirrup" and
+             jobitem.option["Profile"].value = "Oval" then
+	     jobitem.dim[4].value = F + C
+	  endif
+	  if jobitem.option["Type"].value = "Stirrup" and
+             jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[3].value = E + C
+	  endif
+        endif
+rem*************************************************************************************838---Wrap-Round Hanger********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Wrap-Round Hanger" then
+	     jobitem.dim[2].value = D + C
+	  endif
+        endif
+rem*************************************************************************************838---Flat Strap Hanger********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Flat Strap Hanger" and
+             jobitem.option["Profile"].value = "Rectangular" then
+	     jobitem.dim[3].value = E + C
+	  endif
+	  if jobitem.option["Type"].value = "Flat Strap Hanger" and
+             jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[2].value = D + C
+	  endif
+        endif
+rem*************************************************************************************838---Clipped Flat Strap Hanger********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Clipped Flat Strap Hanger" then
+	     jobitem.dim[3].value = E + C
+	  endif
+        endif
+rem*************************************************************************************838---Split Ring********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Split Ring" then
+	     jobitem.dim[3].value = E + C
+	  endif
+        endif
+rem*************************************************************************************838---Roll********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Roll" and
+             jobitem.option["Profile"].value = "Rectangular" then
+	     jobitem.dim[4].value = F + C
+	  endif
+	  if jobitem.option["Type"].value = "Roll" and
+             jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[3].value = E + C
+	  endif
+        endif
+rem*************************************************************************************838---Z-Strap********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Z-Strap" then
+	     jobitem.dim[3].value = E + C
+	  endif
+        endif
+rem*************************************************************************************838---Double Profile Bearer********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Double Profile Bearer" then
+	     jobitem.dim[5].value = G + C
+	  endif
+        endif
+rem*************************************************************************************838---V Bottom Clevis********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "V Bottom Clevis" then
+	     jobitem.dim[8].value = K + C
+	  endif
+        endif
+rem*************************************************************************************838---Slide********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Slide" then
+	     jobitem.dim[13].value = L + C
+	  endif
+        endif
+rem*************************************************************************************838---Double Profile Bearer 2********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Double Profile Bearer 2" then
+	     jobitem.dim[6].value = H + C
+	  endif
+        endif
+rem*************************************************************************************838---Wire********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Wire" and
+	     jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[3].value = E + C
+	  endif
+	  if jobitem.option["Type"].value = "Wire" and
+	     jobitem.option["Profile"].value = "Rectangular" then
+	     jobitem.dim[4].value = F + C
+	  endif
+	  if jobitem.option["Type"].value = "Wire" and
+	     jobitem.option["Profile"].value = "Oval" then
+	     jobitem.dim[4].value = F + C
+	  endif
+        endif
+rem*************************************************************************************838---Z Clip********
+	if jobitem.cid = 838 then
+	  if jobitem.option["Type"].value = "Z Clip" then
+	     jobitem.dim[5].value = G + C
+	  endif
+        endif
+rem*************************************************************************************1238---Profiled Bearer********
+	if jobitem.cid = 1238 then
+	  if jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[5].value = G + C
+	     jobitem.dim[6].value = H + C
+	  endif
+	  if jobitem.option["Profile"].value = "Rectangular" then
+	     jobitem.dim[6].value = H + C
+	     jobitem.dim[7].value = J + C
+	  endif
+        endif
+rem*************************************************************************************1239---Stirrup********
+	if jobitem.cid = 1239 then
+	  if jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[3].value = E + C
+	     jobitem.dim[4].value = F + C
+	  endif
+	  if jobitem.option["Profile"].value = "Oval" then
+	     jobitem.dim[4].value = F + C
+	     jobitem.dim[5].value = G + C
+	  endif
+        endif
+rem*************************************************************************************1240---Wrap-Round Hanger********
+	if jobitem.cid = 1240 then
+	   jobitem.dim[5].value = G + C
+	  endif
+rem*************************************************************************************1241---Flat Strap Hanger********
+	if jobitem.cid = 1241 then
+	  if jobitem.option["Profile"].value = "Rectangular" then
+	     jobitem.dim[3].value = E + C
+	  endif
+	  if jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[3].value = E + C
+	  endif
+        endif
+rem*************************************************************************************1242---Clipped Flat Strap Hanger********
+	if jobitem.cid = 1242 then
+	   jobitem.dim[3].value = E + C
+	  endif
+rem*************************************************************************************1243---Clevis Hanger********
+	if jobitem.cid = 1243 then
+	   jobitem.dim[7].value = J + C
+	  endif
+rem*************************************************************************************1244---Roll Clevis Hanger********
+	if jobitem.cid = 1244 then
+	   jobitem.dim[7].value = J + C
+	  endif
+rem*************************************************************************************1247---Split Ring********
+	if jobitem.cid = 1247 then
+	  if jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[3].value = E + C
+	     jobitem.dim[4].value = F + C
+	  endif
+	  if jobitem.option["Profile"].value = "Oval" then
+	     jobitem.dim[4].value = F + C
+	     jobitem.dim[5].value = G + C
+	  endif
+        endif
+rem*************************************************************************************1248---Roll********
+	if jobitem.cid = 1248 then
+	  if jobitem.option["Profile"].value = "Round" then
+	     jobitem.dim[3].value = E + C
+	     jobitem.dim[4].value = F + C
+	  endif
+	  if jobitem.option["Profile"].value = "Rectangular" then
+	     jobitem.dim[4].value = F + C
+	     jobitem.dim[5].value = G + C
+	  endif
+        endif
+rem*************************************************************************************1249---J********
+	if jobitem.cid = 1249 then
+	   jobitem.dim[6].value = H + C
+	  endif
+rem*************************************************************************************1250---Z-Strap********
+	if jobitem.cid = 1250 then
+	   jobitem.dim[3].value = E + C
+	  endif
+next i
